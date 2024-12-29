@@ -17,5 +17,5 @@ jobs:
         uses: nateraw/huggingface-sync-action@v0.0.4
         with:
           hf_token: ${{ secrets.HF_TOKEN }}
-          repo_id: Prahmodh/iris-classification-app
+          huggingface_repo_id: Prahmodh/iris-classification-app
           repo_type: space
