@@ -10,7 +10,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth:
+          fetch-depth: 0
           lfs: true
 
       - name: Sync with Hugging Face
