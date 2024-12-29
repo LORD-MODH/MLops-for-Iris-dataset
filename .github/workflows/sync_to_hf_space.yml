@@ -18,4 +18,4 @@ jobs:
         with:
           hf_token: ${{ secrets.HF_TOKEN }}
           huggingface_repo_id: Prahmodh/iris-classification-app
-          repo_type: space
+          repo_type: space 
