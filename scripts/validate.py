@@ -1,9 +1,10 @@
 from sklearn.metrics import accuracy_score
-import joblib
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
 
+import joblib
 model = joblib.load("models/iris_model.pkl")
 
-from sklearn.datasets import load_iris
 iris = load_iris()
 
 X, y = iris.data, iris.target

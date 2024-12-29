@@ -1,4 +1,4 @@
-name : MLops pipeline
+name: MLops Pipeline
 on: [push]
 
 jobs:
@@ -6,23 +6,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     	- name: Checkout Repository
-		uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-		- name: Setup Python 
-		uses: actions/setup-python@v2
-		with: 
-			python-vesion: 3.13
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.13"
 
-		- name: Install Dependencies
+      - name: Install Dependencies
         run: |
-          	pip install -r requirements.txt
+          pip install -r requirements.txt
 
-		- name: Train Model
-		run: |
-			python scripts/train.py
+      - name: Train Model
+        run: |
+          python scripts/train.py
 
-		- name: Validate Model
+      - name: Validate Model
         run: |
           python scripts/validate.py
-
