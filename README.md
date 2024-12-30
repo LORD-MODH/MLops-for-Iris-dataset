@@ -1,10 +1,24 @@
-# Iris Classification MLops Project
+---
+title: Iris Classification App
+emoji: 🌸
+colorFrom: pink
+colorTo: purple
+sdk: streamlit
+sdk_version: "1.12.0"
+app_file: app.py
+pinned: false
+---
 
-This project demonstrates a simple MLops pipeline for the Iris classification problem.
+# Iris Classification App
 
-## Steps
+A simple web app for classifying Iris flower species based on sepal and petal measurements. Built using a Logistic Regression model and deployed with Streamlit and Hugging Face Spaces.
 
-1. Model development in Kaggle.
-2. Version control with GitHub.
-3. CI/CD pipeline with GitHub Actions.
-4. Deployment with Streamlit and Hugging Face Spaces.
+## How to Use
+
+1. Enter the flower measurements (sepal length, sepal width, petal length, petal width).
+2. Click **Predict** to see the predicted species.
+
+## Developer
+
+- **GitHub**: [LORD-MODH](https://github.com/LORD-MODH)
+- **LinkedIn**: [Prahmodh S R](https://www.linkedin.com/in/prahmodh-s-r/)
