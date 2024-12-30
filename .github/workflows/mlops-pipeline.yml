@@ -12,7 +12,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.13"
+          python-version: "3.8" # Use Python 3.8 (3.13 is not yet supported)
 
       - name: Install Dependencies
         run: |
@@ -25,3 +25,10 @@ jobs:
       - name: Validate Model
         run: |
           python scripts/validate.py
+
+      - name: Sync with Hugging Face Spaces
+        uses: actions-hub/huggingface@master
+        with:
+          hf_token: ${{ secrets.HF_TOKEN }}
+          hf_repo: Prahmodh/iris-classification-app # Replace with your Hugging Face Space name
+          hf_path: . # Sync the entire repository
