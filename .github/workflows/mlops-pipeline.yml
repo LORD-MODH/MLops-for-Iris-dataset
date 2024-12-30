@@ -12,7 +12,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.8" # Use Python 3.8 (3.13 is not yet supported)
+          python-version: "3.13"
 
       - name: Install Dependencies
         run: |
@@ -27,8 +27,8 @@ jobs:
           python scripts/validate.py
 
       - name: Sync with Hugging Face Spaces
-        uses: actions-hub/huggingface@master
+        uses: nateraw/huggingface-sync-action@v0.0.4
         with:
           hf_token: ${{ secrets.HF_TOKEN }}
-          hf_repo: Prahmodh/iris-classification-app # Replace with your Hugging Face Space name
-          hf_path: . # Sync the entire repository
+          hf_repo: Prahmodh/iris-classification-app
+          hf_path: .
