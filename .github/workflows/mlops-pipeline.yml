@@ -1,5 +1,8 @@
 name: MLops Pipeline
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -7,7 +10,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
 
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -17,6 +23,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
+          pip install huggingface_hub
 
       - name: Train Model
         run: |
@@ -27,8 +34,14 @@ jobs:
           python scripts/validate.py
 
       - name: Sync with Hugging Face Spaces
-        uses: nateraw/huggingface-sync-action@v0.0.4
-        with:
-          hf_token: ${{ secrets.HF_TOKEN }}
-          hf_repo: Prahmodh/iris-classification-app
-          hf_path: .
+        run: |
+          python -c "
+          from huggingface_hub import HfApi
+          api = HfApi(token='${{ secrets.HF_TOKEN }}')
+          api.upload_folder(
+              folder_path='.',
+              repo_id='prahmodh/iris-classification-app',
+              repo_type='space',
+              path_in_repo='.'
+          )
+          "
